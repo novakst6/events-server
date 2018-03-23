@@ -39,6 +39,8 @@ namespace EventWebApp.Controllers
 
             string filterString = HttpContext.Request.Query["filter"];
             EventRequestFilter filter = JsonConvert.DeserializeObject<EventRequestFilter>(filterString);
+            CorrectUserTime(filter);
+            _logger.LogDebug(LoggingEvents.Filtering, "Getting page {PAGE} FromDate: {FROM} ToDate: {TO}", page, filter.fromDate, filter.toDate);
             return _service.GetPage(page, size, filter);
         }
 
@@ -159,21 +161,40 @@ namespace EventWebApp.Controllers
 
         private void CorrectUserTime(Event e)
         {
-            var offset = 0;
-            IHeaderDictionary dictionary = HttpContext.Request.Headers;
-            foreach (KeyValuePair<string, StringValues> item in dictionary)
-            {
-                if (item.Key == "TimeZoneOffset") {
-                    offset = int.Parse(item.Value);
-                }
-            }
+            var offset = GetOffset();
             if (offset != 0) {
                 TimeSpan tsOffset = TimeSpan.FromMinutes(-offset);
                 //FromDate                
                 e.FromDate = new DateTimeOffset(e.FromDate).ToOffset(tsOffset).DateTime;
                 //ToDate
-                e.FromDate = new DateTimeOffset(e.ToDate).ToOffset(tsOffset).DateTime;
+                e.ToDate = new DateTimeOffset(e.ToDate).ToOffset(tsOffset).DateTime;
             }
+        }
+
+        private void CorrectUserTime(EventRequestFilter f)
+        {
+            var offset = GetOffset();
+            if (offset != 0)
+            {
+                TimeSpan tsOffset = TimeSpan.FromMinutes(-offset);
+                //FromDate                
+                f.fromDate = new DateTimeOffset(f.fromDate).ToOffset(tsOffset).DateTime;
+                //ToDate
+                f.toDate = new DateTimeOffset(f.toDate).ToOffset(tsOffset).DateTime;
+            }
+        }
+
+        private int GetOffset() {
+            var offset = 0;
+            IHeaderDictionary dictionary = HttpContext.Request.Headers;
+            foreach (KeyValuePair<string, StringValues> item in dictionary)
+            {
+                if (item.Key == "TimeZoneOffset")
+                {
+                    offset = int.Parse(item.Value);
+                }
+            }
+            return offset;
         }
     }
 
