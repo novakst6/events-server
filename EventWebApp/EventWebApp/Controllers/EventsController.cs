@@ -176,11 +176,14 @@ namespace EventWebApp.Controllers
             var offset = GetOffset();
             if (offset != 0)
             {
-                TimeSpan tsOffset = TimeSpan.FromMinutes(-offset);
-                //FromDate                
-                f.fromDate = new DateTimeOffset(f.fromDate).ToOffset(tsOffset).DateTime;
-                //ToDate
-                f.toDate = new DateTimeOffset(f.toDate).ToOffset(tsOffset).DateTime;
+                if (f.fromDate > DateTime.MinValue && f.toDate < DateTime.MaxValue)
+                {
+                    TimeSpan tsOffset = TimeSpan.FromMinutes(-offset);
+                    //FromDate                
+                    f.fromDate = new DateTimeOffset(f.fromDate).ToOffset(tsOffset).DateTime;
+                    //ToDate
+                    f.toDate = new DateTimeOffset(f.toDate).ToOffset(tsOffset).DateTime;
+                }
             }
         }
 
