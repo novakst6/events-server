@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  eventwebapp:
+    image: eventwebapp
+    build:
+      context: .
+      dockerfile: EventWebApp\Dockerfile

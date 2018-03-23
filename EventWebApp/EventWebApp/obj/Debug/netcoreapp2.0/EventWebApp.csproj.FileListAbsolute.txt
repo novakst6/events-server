@@ -1,0 +1,11 @@
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\bin\Debug\netcoreapp2.0\EventWebApp.deps.json
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\bin\Debug\netcoreapp2.0\EventWebApp.runtimeconfig.json
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\bin\Debug\netcoreapp2.0\EventWebApp.runtimeconfig.dev.json
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\bin\Debug\netcoreapp2.0\EventWebApp.dll
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\obj\Debug\netcoreapp2.0\EventWebApp.csprojResolveAssemblyReference.cache
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\obj\Debug\netcoreapp2.0\EventWebApp.csproj.CoreCompileInputs.cache
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\obj\Debug\netcoreapp2.0\EventWebApp.AssemblyInfoInputs.cache
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\obj\Debug\netcoreapp2.0\EventWebApp.AssemblyInfo.cs
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\bin\Debug\netcoreapp2.0\EventWebApp.pdb
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\obj\Debug\netcoreapp2.0\EventWebApp.dll
+C:\Users\stenlik\source\repos\EventWebApp\EventWebApp\obj\Debug\netcoreapp2.0\EventWebApp.pdb

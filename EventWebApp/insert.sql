@@ -1,0 +1,1 @@
+﻿INSERT INTO dbo.Event (Name, FromDate, ToDate) VALUES ('TestEvent 2', '20120620 10:34:09 AM', '20120621 10:34:09 AM');
